@@ -1,6 +1,10 @@
 package com.bofa.interview.service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +50,19 @@ public class CandidateServiceImpl implements CandidateService {
 		return candidateDao.getCandidate(id);
 	}
 
-	public Candidate addInterviewTimeSlot(long id, Timestamp interviewTimeSlot) {
+	public Candidate addInterviewTimeSlot(long id, String interviewTimeSlot) {
 		Candidate c= getCandidate(id);
-		c.setInterviewTimeSlot(interviewTimeSlot);
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"); 
+    	Date date=null;
+		try {
+			date = (Date)formatter.parse(interviewTimeSlot);
+	 		Timestamp ts = new Timestamp(date.getTime());
+			c.setInterviewTimeSlot(ts);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			
+		}		
+ 		
 		candidateDao.save(c);
 		return c;
 	}

@@ -17,7 +17,7 @@ public interface CandidateService {
 
 	Candidate getCandidate(long id);
 
-	Candidate addInterviewTimeSlot(long id, Timestamp interviewTimeSlot);
+	Candidate addInterviewTimeSlot(long id, String interviewTimeSlot);
 
 	Candidate addFeedback(long id, String feedback);
 

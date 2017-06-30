@@ -47,12 +47,10 @@ body {
 						</form>
 					</th>
 				</tr>
-				<tr>
-					<th><c:if test="${message != null}">
-							<c:out value="${message}" />
-						</c:if></th>
-				</tr>
 			</table>
+			<c:if test="${message != null}">
+							<c:out value="${message}" />
+						</c:if>
 		</div>
 	</center>
 </body>

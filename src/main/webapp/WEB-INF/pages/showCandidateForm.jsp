@@ -55,7 +55,7 @@ th, td {
 						<button class="btn btn-primary"
 							onclick="location.href='${updateUrl}'">Feedback</button>
 						<button class="btn btn-danger"
-							onclick="this.disabled=true;post('${deleteUrl}')">Delete</button></td>
+							onclick="this.disabled=true;location.href='${deleteUrl}'">Delete</button></td>
 						
 				</tr>
 			</c:forEach>	

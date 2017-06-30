@@ -49,7 +49,6 @@ public class ApplicationController {
 	public String getlistOfCandidates(ModelMap model) {
 		List<Candidate> candidates = candidateService.getAllCandidates();
 		model.addAttribute("candidates", candidates);
-		model.addAttribute("can", "success");
 		return "showCandidateForm";
 
 	}
@@ -57,14 +56,14 @@ public class ApplicationController {
 	@RequestMapping(value = "/updateCandidate/{id}/addInterview", method = RequestMethod.GET)
 	public String addInterviewToCandidate(@PathVariable("id") long id, ModelMap model) {
 		Candidate candidate = candidateService.getCandidate(id);
-		System.out.println(candidate.getEmail());
 		model.addAttribute("candidate", candidate);
 		return "scheduleInterview";
 	}
 
 	@RequestMapping(value = "/updateCandidate/{id}/addInterview", method = RequestMethod.POST)
 	public String setInterviewToCandidate(@PathVariable("id") long id,
-			@RequestParam("interviewTimeSlot") Timestamp interviewTimeSlot, ModelMap model) {
+			@RequestParam("interviewTimeSlot") String interviewTimeSlot, ModelMap model) {
+		System.out.println("TimeStamp---"+interviewTimeSlot);
 		candidateService.addInterviewTimeSlot(id, interviewTimeSlot);
 		model.addAttribute("message", "candidate Interview added successfully");
 		return "index";

@@ -42,7 +42,7 @@ body {
 					<br/>
 					<tr>
 						<td>Last Name :</td>
-						<td><td>${candidate.lastName}</td>
+						<td>${candidate.lastName}</td>
 					</tr>
 					<br/>
 					<br/>
@@ -54,9 +54,7 @@ body {
 					<br>
 					<tr>
 						<td>Interview Slot:</td>
-						<td><input type="date" name="interviewTimeSlot"
-							PLACEHOLDER="Select Time Slot"></td>
-						<td><input type="time" name="interviewTimeSlot"></td>
+						<td><input type="datetime-local" name="interviewTimeSlot" step="1"></td>
 					</tr>
 					<br/>
 					<br />
